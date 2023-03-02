@@ -1,0 +1,138 @@
+:root {
+    --gradientRed:rgb(230, 57, 70, 0.5);
+    --gradientEggShell: rgba(241, 250, 238, 0.5);
+    --gradientAltLightBlue: #a8dadc;
+    --cardLightBlue: #457b9d;
+    --cardDarkBlue: #1d3557;
+    --card-width: 25vw;
+    --card-height: 60vh;
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'FreeMono', monospace;
+}
+
+[class^="container"] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* body {
+    background-color: blue;
+} */
+
+.container-main {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("images/skylinePHL.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: .1.0;
+    z-index: 1;
+}
+
+.container-main::before{
+    background-image: linear-gradient(to right, var(--gradientRed), var(--gradientEggShell));
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+.container-card {
+    z-index: 20;
+    overflow: hidden;
+    width: var(--card-width);
+    height: var(--card-height);
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5%;
+    transition: all 0.3s ease-out;
+
+}
+
+.container-card:hover {
+    box-shadow: 8px 10px 5px 5px var(--cardDarkBlue);
+    transform: translate(-5px, -3px);
+}
+
+[class^="section"]{
+    align-items: center;
+    /* justify-content: center; */
+    justify-content: space-between;
+}
+
+.section-1 {
+    /* flex:1; */
+    border-bottom: 1px solid black;
+    /* justify-content: space-between; */
+}
+
+.professional-picture{
+    width: calc(var(--card-width)/2.5);
+    width: calc(var(--card-width)/2.5);
+    padding: 2vh;
+    /* height: 100%; */
+    border-radius: 50%;
+}
+
+.section-2 {
+    flex:1;
+    text-align: center;
+    width: 80%;
+}
+
+.section-2__name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+    padding-top: 10%;
+}
+
+.section-2__description {
+    /* font-family: 'Lucida Handwriting', 'Brush Script MT', 'monospace'; */
+    padding: 10% 0 20% 0;
+    /* border-bottom: 1px solid black; */
+}
+
+.section-3 {
+    border-top: 1px solid black;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* border-top: 1px solid black; */
+}
+
+.section-3 > a {
+    text-decoration: inherit;
+    color: inherit;
+}
+
+.section-3 > a > img {
+    width: calc(var(--card-width)/5);
+    padding: 2rem 0 2rem 0;
+}
+
+@media only screen and (max-width: 1000px) {
+    .container-card {
+
+        width: calc(var(--card-width)*2);
+    }
+    .section-3 {
+        height: 20%;
+    }
+    .section-3 > a > img  {
+        width: calc(var(--card-width)/4);
+    }
+    .professional-picture{
+        width: calc(var(--card-width)/1.5);
+        width: calc(var(--card-width)/1.5);
+        padding: 2vh;
+    }
+
+}
